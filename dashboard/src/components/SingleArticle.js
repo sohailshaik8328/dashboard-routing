@@ -33,27 +33,43 @@ class SingleArticle extends React.Component {
     constructor(props) {
         super(props);
     }
-
-   
     render() {
         let slug = this.props.match.params.slug;
-        let article = data.map(article => article)
-        return (
-            <section className="single_article_section">
-            {
-                slug === article.slug ? < NewArticle article={article} /> : ""
-            }
-        </section>
-    )
-   }
+        var articleSlug = []
+            data.map((article) => {
+                if(slug === article.slug){
+                    articleSlug.push(article)
+                }
+            })
+            console.log(articleSlug)
+
+            return (
+                <section className="single_article_section">
+                    {
+                        articleSlug.map((each) => (
+                            <div>
+                                <h2>{each.title}</h2>
+                                <h3>{each.author}</h3>
+                                <h3>{each.slug}</h3>
+                            </div>
+                        ))
+                    }
+            </section>
+        )
+    }
 }
 
-function NewArticle(props) {
-    return(
-        <div>
-            <h1>{props.article.title}</h1>
-        </div>
-    )
-}
+// function NewArticle(props) {
+//     console.log(props)
+//     return(
+//         <div>
+//             {/* {
+//                 props.articles.map((each) => (
+//                     <h2>{each.title}</h2>
+//                 ))
+//             } */}
+//         </div>
+//     )
+// }
 
 export default SingleArticle;
