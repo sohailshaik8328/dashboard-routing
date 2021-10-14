@@ -50,8 +50,9 @@ class SingleArticle extends React.Component {
                             <div>
                                 <h2>{each.title}</h2>
                                 <h3>{each.author}</h3>
-                                <h3>{each.slug}</h3>
+                                <h3>{each.slug}</h3>  
                             </div>
+                            
                         ))
                     }
             </section>
